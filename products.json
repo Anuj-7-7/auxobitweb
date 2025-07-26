@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Type A",
+    "image": "/images/Frame 1268.png",
+    "heading": "Amazing Type A",
+    "description": "A short description for Type A",
+    "details": "Additional small detail line."
+  },
+  {
+    "name": "Type B",
+    "image": "/images/Frame 1276.png",
+    "heading": "Brilliant Type B",
+    "description": "A short description for Type B",
+    "details": "Additional small detail line."
+  },
+  {
+    "name": "Type C",
+    "image": "/images/Frame 1265.png",
+    "heading": "Classic Type C",
+    "description": "A short description for Type C",
+    "details": "Additional small detail line."
+  },
+  {
+    "name": "Type D",
+    "image": "/images/Frame 1342.png",
+    "heading": "Deluxe Type D",
+    "description": "A short description for Type D",
+    "details": "Additional small detail line."
+  },
+  {
+    "name": "Type E",
+    "image": "/images/Frame 1268.png",
+    "heading": "Excellent Type E",
+    "description": "A short description for Type E",
+    "details": "Additional small detail line."
+  },
+  {
+    "name": "Type F",
+    "image": "/images/Frame 1276.png",
+    "heading": "Fantastic Type F",
+    "description": "A short description for Type F",
+    "details": "Additional small detail line."
+  }
+]

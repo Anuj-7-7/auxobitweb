@@ -1,0 +1,24 @@
+.alllll{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    background: #3a3a3a;
+    color: whitesmoke;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.copy{
+    position:absolute;
+    left: 120px;
+}
+.soc{
+    position: relative;
+    left: 820px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 25px;
+}

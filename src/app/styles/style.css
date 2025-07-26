@@ -1,0 +1,86 @@
+/* app/styles/style.css */
+
+/* Container and spacing */
+.contact-section {
+  height:250px;
+  width: 90%;
+  background-color: #f7fafc;
+  margin-left: 3%;
+  margin-top: -10px;
+  padding:15px;padding-left: 5%;
+  margin-bottom: 10px;
+}
+
+.contact-header h2 {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #1f2937; /* gray‑900 */
+  margin-bottom: 0.5rem;
+}
+.contact-header p {
+  font-size: 1rem;
+  color: #4b5563; /* gray‑700 */
+}
+
+/* Row 1 */
+.contact-row1 {
+  display: flex;
+  gap: 1.7rem;
+  height: 60px;
+}
+.contact-row1 input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #cbd5e1; /* gray‑400 */
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  color: #1f2937;
+}
+.contact-row1 input:focus {
+  outline: none;
+  border-bottom-color: #3b82f6; /* blue‑500 */
+}
+
+/* Row 2 */
+.contact-row2 {
+  display: flex;
+  gap: 1.5rem;
+  height: 100px;
+  align-items: center;
+}
+.contact-row2 textarea {
+  flex: 8;
+   border: none;
+  border-bottom: 1px solid #cbd5e1;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  color: #1f2937;
+  resize: vertical;
+}
+.contact-row2 textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+.contact-row2 button {
+  flex: 2;
+  background: transparent; border: none;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+}
+.contact-row2 button:hover {
+  background: #374151;
+  color: white;
+}
+.enq{
+    height:60px;
+    width:80%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

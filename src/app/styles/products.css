@@ -1,0 +1,300 @@
+.products-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 2rem;
+}
+
+/* Intro */
+.intro-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.intro-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.intro-section p {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+/* Product Section Grid */
+.product-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'left right';
+  gap: 2rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+.product-section.reverse {
+  grid-template-areas: 'right left';
+}
+
+/* Left Image Column */
+.product-left {
+  display: grid;
+  grid-template-rows: 0.8fr 0.2fr;
+  grid-area: left;
+  gap: 1rem;
+}
+
+.product-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.product-left-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  background: transparent;
+  border: 2px solid #b7b7b7;
+  border-top-right-radius: 13%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {transform: translateY(-2px);
+  background: #626262;
+  color: #fff;
+}
+/* Product Section Hover Animation */
+.product-section {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-section:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background-color: #f7f7f7;
+}
+
+/* Image fade-in on load */
+.product-right img,
+.product-left img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Image hover effect */
+.product-right img:hover,
+.product-left img:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Button hover is already good — just polish it slightly */
+.view-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  background: transparent;
+  border: 2px solid #b7b7b7;
+  border-top-right-radius: 13%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: #2f2e2e;
+  color: #ffffff;
+}
+
+/* Right two image column */
+.product-right {
+  grid-area: right;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  transition: opacity 0.6s ease;
+}
+
+/* Visibility */
+.product-right.hidden {
+  opacity: 0;
+}
+.product-right.visible {
+  opacity: 1;
+}
+
+/* Image Defaults */
+.product-left img,
+.product-right img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+/* in src/styles/products.css */
+.section__wrapper {
+  position: relative;
+}
+
+/* the vertical track */
+.section__line {
+  position: absolute;
+  left: 2rem;               /* tune distance from left */
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* existing .products-container, .product-section, etc. */
+.connector-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.products-container {
+  position: relative;
+  z-index: 1;
+}
+.products-page-wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.scroll-line-wrapper {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100vh;
+  background: transparent;
+  z-index: 0;
+  transform: translateX(-50%);
+}
+
+.scroll-line-inner {
+  width: 100%;
+  height: 0%;
+  background-color: #007aff;
+  transition: height 0.1s ease-out;
+}
+
+.products-container {
+  position: relative;
+  z-index: 1; /* Above the line */
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rem;
+  gap: 2rem;
+}
+
+.product-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.product-left, .product-right {
+  flex: 1;
+}
+
+.product-image-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.product-left-button {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.view-button {
+  padding: 10px 20px;
+  background: #2a2a2a;
+  color: #f6f6f6;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.products-page-wrapper {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: #f9f9f9;
+}/* products.css */
+.products-container {
+  position: relative;
+  z-index: 1;      /* above the SVG */
+  overflow: visible; /* allow dot to move */
+  padding:0;
+}
+
+/* now absolutely position your path‐svg inside the container */
+.products-container .path-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;      /* behind content */
+}
+
+/* make sure your sections are above it */
+.product-section,
+.intro-section {
+  position: relative;
+  z-index: 1;
+}
+.product-left,
+.product-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-left.multi,
+.product-right.multi {
+  gap: 10px; /* space between two 300x300 images */
+}
+.product-single-button {
+  margin-top: 20px;
+  
+}
+
+.view-button {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  padding: 10px 20px;
+  font-weight: normal;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.view-button:hover {
+  transform: scale(1.05);
+}

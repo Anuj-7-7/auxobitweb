@@ -1,0 +1,19 @@
+/* ScrollProgress.css */
+.progress-container {
+  position: fixed;
+  top: 2rem;               /* adjust for any header height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100vh - 4rem);
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 0;              /* behind your .home-content */
+  transform-origin: top;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background: #9ca3af;     /* classy slate‑grey */
+  transform-origin: top;
+}

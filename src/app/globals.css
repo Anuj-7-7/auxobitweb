@@ -1,26 +1,187 @@
-@import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* At the very top of globals.css */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
+}
+
+/* at top of globals.css, below the Tailwind directives */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  max-width:100%;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  max-width:100%;
+}@layer components {
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    transform: translateY(-50%);
+    color: white;
+    opacity: 0.6;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    visibility: hidden;
+    font-weight: normal;
+  }
+
+  /* Show arrows on hover of carousel wrapper */
+  .carousel-wrapper:hover .swiper-button-prev,
+  .carousel-wrapper:hover .swiper-button-next {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Make icon a bit larger and white */
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 1.25rem !important;
+    color: white;
+    transition: transform 0.2s ease-in-out, font-weight 0.2s ease-in-out;
+  }
+
+  /* Click (active) effect: scale up and bold */
+  .swiper-button-prev:active::after,
+  .swiper-button-next:active::after {
+    transform: scale(1.3);
+    font-weight: 700;
+  }
+}
+body a {
+  text-decoration: none;
+  font-weight: 350;
+  color: inherit; /* <- Respect text color from classes */
+}
+
+.hd{
+  margin-top: 8px;
+  margin-left:90px ;
+  height:35px;
+}
+.single {
+  width: 100%; /* let it expand */
+  white-space: nowrap; /* prevent wrapping */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+.ai{
+  position:relative;
+  left:-230px;
+}
+.ov{
+  z-index: 1000000;
+  margin-top: -7px;
+}
+.ed{
+  font-size: 23px;
+  gap: 5px;
+  margin-left: 10px;
+}
+.discover{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.5s ease-in-out;
+}
+.okay{
+  height:1800px;
+  margin-top: 35px;
+  margin-bottom:100px;
+}
+.sec{
+ display:grid;
+ grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap:15px;
+  width:100%;
+}
+.oyyy{
+  display:flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-evenly;
+  width:100%;
+  height:60px;
+}
+.icons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+/* Default Navbar in navbar.css… (keep your existing rules) */
+
+/* Products‑page override */
+.navbar--products {
+  /* matches our headerStyle background too */
+  background-color: #f0f0f0 !important;
+}
+
+.navbar--products .single:hover {
+  background-color: #e0e0e0;
+}
+/* somewhere in your global or home-specific CSS */
+.home-content {
+  position: relative;
+  z-index: 1;
+}
+.discover {
+  transition:
+    background-color 0.15s ease-out,
+    color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    transform 0.1s ease-out;
+  border: 1px solid currentColor;
+  background-color: transparent;
+  color: #fff; /* default white */
+}
+
+/* default hover for all non-digital */
+.discover:hover {
+  background-color:transparent;
+  color: #ffffff;
+  border-color: #fff;
+}
+
+/* digital‑trainer base & hover */
+.discover.digital {
+  color: #000;
+  border-color: #000;
+}
+.discover.digital:hover {
+  background-color:transparent;
+  color: #000000;
+  border-color: #000;
 }
