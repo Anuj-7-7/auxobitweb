@@ -3,12 +3,13 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function Navbar({ style = {}, className = '' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isProducts = pathname.startsWith('/products');
-  const isContact  = pathname === '/contact';
+  const isContact = pathname === '/contact';
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -18,12 +19,12 @@ export default function Navbar({ style = {}, className = '' }) {
 
   const headerStyle = {
     backgroundColor: isContact && !isScrolled
-      ? '#000'                     // Contact, top: dark
+      ? '#000'
       : isScrolled
-      ? '#ffffff'                  // any page, scrolled: white
+      ? '#ffffff'
       : isProducts
-      ? '#f0f0f0'                  // Products: gray
-      : 'transparent',             // others, top: transparent
+      ? '#f0f0f0'
+      : 'transparent',
     ...style,
   };
 
@@ -53,21 +54,27 @@ export default function Navbar({ style = {}, className = '' }) {
         </Link>
 
         <ul className="flex list-none ai">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="inline-block px-[57px] text-[14px] font-[350] bg-transparent rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-200 no-underline whitespace-nowrap"
-                style={{
-                  color: isScrolled || isProducts
-                    ? '#000'
-                    : '#fff',
-                }}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <li key={item.href}>
+                <Link href={item.href}>
+                  <motion.div
+                    whileTap={{ y: 2, scale: 0.98, opacity: 0.7 }}
+                    className="inline-block px-[57px] py-[12px] text-[14px] font-[350] bg-transparent rounded-full transition-all duration-200 hover:bg-blue-600 hover:text-white no-underline whitespace-nowrap cursor-pointer relative select-none"
+                    style={{
+                      color: isScrolled || isProducts ? '#000' : '#fff',
+                    }}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <span className="absolute bottom-1 left-1/2 w-4/5 h-[2px] bg-black transform -translate-x-1/2 rounded-full" />
+                    )}
+                  </motion.div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>
