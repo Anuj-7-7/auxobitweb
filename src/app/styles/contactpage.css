@@ -170,3 +170,35 @@ textarea {
   margin-bottom: 1rem;
   color: #111;
 }
+/* === Hover & Interaction for Email/Phone Rows === */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.info-item:hover {
+  transform: translateX(4px);
+}
+
+.info-icon,
+.info-link {
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.info-item:hover .info-icon {
+  color: #0070f3;
+  transform: scale(1.2);
+}
+
+.info-item:hover .info-link {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.info-link:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 2px;
+}

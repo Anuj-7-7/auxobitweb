@@ -11,8 +11,8 @@
 /* Overlay container */
 .overlay {
   position: absolute;
-  top: 15%;
-  left: 0;
+  top: 13%;
+  left: 0%;
   right: 0%;
   z-index: 5;
   display: flex;
@@ -54,7 +54,7 @@
 .blw {
   font-style: italic;
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   transition: all 0.3s ease-in-out;
   opacity: 0.85;
 }

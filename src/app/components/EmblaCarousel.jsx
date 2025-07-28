@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import {
   PrevButton,
@@ -8,12 +8,15 @@ import {
 } from './EmblaCarouselArrowButtons';
 
 const TWEEN_FACTOR_BASE = 0.84;
+const AUTO_PLAY_MS = 10000;
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
 
 export default function EmblaCarousel({ slides, options }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const tweenFactor = useRef(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const autoplayRef = useRef(null);
 
   const {
     prevBtnDisabled,
@@ -22,7 +25,6 @@ export default function EmblaCarousel({ slides, options }) {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi);
 
-  // Tween opacity as before…
   const setTweenFactor = useCallback((api) => {
     tweenFactor.current = TWEEN_FACTOR_BASE * api.scrollSnapList().length;
   }, []);
@@ -32,14 +34,11 @@ export default function EmblaCarousel({ slides, options }) {
     const scrollProgress = api.scrollProgress();
     const slidesInView = api.slidesInView();
     const isScroll = eventName === 'scroll';
-
     api.scrollSnapList().forEach((snap, snapIndex) => {
       let diff = snap - scrollProgress;
       const registry = engine.slideRegistry[snapIndex];
-
       registry.forEach((slideIndex) => {
         if (isScroll && !slidesInView.includes(slideIndex)) return;
-
         if (engine.options.loop) {
           engine.slideLooper.loopPoints.forEach((loopItem) => {
             const target = loopItem.target();
@@ -50,7 +49,6 @@ export default function EmblaCarousel({ slides, options }) {
             }
           });
         }
-
         const t = 1 - Math.abs(diff * tweenFactor.current);
         const opacity = numberWithinRange(t, 0, 1);
         api.slideNodes()[slideIndex].style.opacity = opacity;
@@ -58,10 +56,13 @@ export default function EmblaCarousel({ slides, options }) {
     });
   }, []);
 
+  const onSelect = useCallback((api) => {
+    setSelectedIndex(api.selectedScrollSnap());
+  }, []);
+
   useEffect(() => {
     if (!emblaApi) return;
 
-    //— TWEEN SETUP
     setTweenFactor(emblaApi);
     tweenOpacity(emblaApi);
     emblaApi
@@ -70,9 +71,9 @@ export default function EmblaCarousel({ slides, options }) {
       .on('scroll', tweenOpacity)
       .on('slideFocus', tweenOpacity);
 
-    //— VIDEO PLAY/PAUSE
     const handleSelect = () => {
       const idx = emblaApi.selectedScrollSnap();
+      setSelectedIndex(idx);
       emblaApi.slideNodes().forEach((slideEl, i) => {
         const video = slideEl.querySelector('video');
         if (!video) return;
@@ -82,17 +83,13 @@ export default function EmblaCarousel({ slides, options }) {
     emblaApi.on('reInit', handleSelect).on('select', handleSelect);
     handleSelect();
 
-    //— AUTOPLAY: scroll to next every 10s
-    const interval = setInterval(() => {
-      if (!emblaApi.canScrollNext() && options.loop) {
-        emblaApi.scrollTo(0);         // wrap to first slide
-      } else {
-        emblaApi.scrollNext();
-      }
-    }, 10_000);
+    clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      if (!emblaApi.canScrollNext() && options.loop) emblaApi.scrollTo(0);
+      else emblaApi.scrollNext();
+    }, AUTO_PLAY_MS);
 
-    // Cleanup on unmount
-    return () => clearInterval(interval);
+    return () => clearInterval(autoplayRef.current);
   }, [emblaApi, options.loop, setTweenFactor, tweenOpacity]);
 
   return (
@@ -112,10 +109,25 @@ export default function EmblaCarousel({ slides, options }) {
             </div>
           ))}
         </div>
-
-        {/* Prev/Next overlaid */}
         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+      </div>
+
+      <div className="embla__dots">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            className={`embla__dot${idx === selectedIndex ? ' is-selected' : ''}`}
+            onClick={() => emblaApi.scrollTo(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          >
+            {idx === selectedIndex && (
+              <svg viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="16" />
+              </svg>
+            )}
+          </button>
+        ))}
       </div>
     </div>
   );

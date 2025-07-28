@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-:root {
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');:root {
   --background: #000000;
   --foreground: #ffffff;
 }
@@ -72,32 +73,53 @@ body {
     transform: scale(1.3);
     font-weight: 700;
   }
+}/* globals.css */
+@font-face {
+   font-family: 'ferro_rossoregular';
+    src: url('/fonts/ferrorosso-webfont.woff2') format('woff2'),
+         url('/fonts/ferrorosso-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'studio-pro-medium';
+  src: url('/fonts/studio-pro-medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GoudyBookletter1911';
+  src: url('/fonts/GoudyBookletter1911.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 body a {
   text-decoration: none;
   font-weight: 350;
   color: inherit; /* <- Respect text color from classes */
 }
-
 .hd{
-  margin-top: 8px;
   margin-left:90px ;
-  height:35px;
+  height:60px;
 }
 .single {
   width: 100%; /* let it expand */
   white-space: nowrap; /* prevent wrapping */
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.3px;
+  font-family: "GoudyBookletter1911";
+  font-weight: 400;
+  font-style:normal;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
 }
 .ai{
   position:relative;
-  left:-230px;
+  left:-220px;
+  margin-top: 27px;
 }
 .ov{
   z-index: 1000000;
-  margin-top: -7px;
+  margin-left: -60px;
+  margin-top: 10px;
 }
 .ed{
   font-size: 23px;
@@ -184,33 +206,4 @@ body a {
   background-color:transparent;
   color: #000000;
   border-color: #000;
-}
-/* styles/globals.css */
-/* styles/globals.css */
-
-.loading-wrapper {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Real translucent glass blur */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0); /* almost transparent */
-
-  z-index: 9999;
-  pointer-events: none; /* Prevent interaction blocking */
-}
-
-/* Logo spin effect */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-.logo-spin {
-  animation: spin-slow 0.8s ease-in-out infinite;
-  image-rendering: crisp-edges;
 }

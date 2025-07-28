@@ -1,63 +1,52 @@
+// src/components/AboutUs.js
 import React from 'react';
 import '../styles/abtus.css';
 
 export default function AboutPage() {
   return (
-    <div className="container">
-      <section className="content">
+    <div className="about-container">
+      <div className="about-content">
 
-        {/* Left Column */}
-        <div className="leftColumn">
-          <div className="titleBox">
-            <h2 className="about-title">
-              About us
-            </h2>
-            <span className="about-subtitle">Aerospace and Marine Tech</span>
-            <h3 className="company-name">Auxobit Aerospace</h3>
-          </div>
-          <div className="textBox">
-            <p className="company-desc">
-Driven by a passion for rapid innovation and an uncompromising drive to exceed industry standards in unmanned airborne systems, our team at Auxobit Aerospace pioneers cutting‑edge loitering‑munition swarm tactics that redefine precision and coordination. We develop advanced surveillance platforms capable of delivering real‑time, high‑resolution intelligence in even the most challenging environments. </p>
-          </div>
+        {/* Left: Intro Section */}
+        <div className="intro-panel">
+          <h2>About Us</h2>
+          <p className="subtitle">Aerospace & Marine Tech</p>
+          <h3 className="company">Auxobit Aerospace</h3>
+          <p className="description">
+Driven by a passion for rapid innovation, our team pioneers cutting-edge loitering-munition swarm tactics and develops next-generation surveillance platforms engineered to thrive in the world’s most demanding operational environments. With a strong foundation in aerospace autonomy and real-time data fusion, Auxobit Aerospace is at the forefront of delivering high-resolution, actionable intelligence with unprecedented precision and reliability.
+
+We specialize in adaptive systems designed to respond dynamically to complex battlefield scenarios—empowering defense forces with  autonomous coordination, and long-range capabilities. Our solutions are architected for the future of defense technology.          </p>
         </div>
 
-        {/* Right Column: two stacked cards*/}
-        <div className="rightColumn">
-
-          {/* Card 1 */}
-          <div className="card">
-            <div className="photoDetails">
-              <div className="photoPlaceholder">
-                <img src="/images/shrvn-removebg-preview.png" alt="Shravan Yadav" className="ia" />
-              </div>
-              <div className="info">
-                <p className="profile-role cto">CTO and Founder</p>
-                <p className="bld profile-name">Shravan Yadav</p>
-              </div>
+        {/* Right: Leadership Cards */}
+        <div className="cards-panel">
+          <div className="card card-top">
+            <div className="avatar-wrapper">
+              <img src="/images/shrvn-removebg-preview.png" alt="Shravan Yadav" />
             </div>
-            <p className="profile-bio">
-              I’m the CTO and founder of Auxobit, where innovation isn’t just a goal—it’s a mindset. I build disruptive technologies from ideation to execution, leading teams that transform ambitious concepts into high-performance, game-changing unmanned systems for defense and beyond.
-            </p>
+            <div className="card-content">
+              <p className="role">CEO & Founder</p>
+              <p className="name">Shravan Yadav</p>
+              <p className="bio">
+                I’m the CEO and founder of Auxobit, where innovation isn’t a goal—it’s our DNA. I lead teams from ideation to execution, delivering game-changing unmanned systems for defense and beyond.
+              </p>
+            </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="card">
-            <div className="photoDetails">
-              <div className="photoPlaceholder">
-                <img src="/images/ysh.png" alt="Yash Bhise" className="ia" />
-              </div>
-              <div className="info">
-                <p className="profile-role dir">Director and Co-Founder</p>
-                <p className="bld profile-name">Yash Bhise</p>
-              </div>
+          <div className="card card-bottom">
+            <div className="avatar-wrapper">
+              <img src="/images/ysh.png" alt="Yash Bhise" />
             </div>
-            <p className="profile-bio">
-              I believe in drone autonomy in applications of surveillance, long-range payload delivery and defence. Currently managing operations by implementing strategic planning and relentlessly improving team efficiency.
-            </p>
+            <div className="card-content">
+              <p className="role">Director & Co-Founder</p>
+              <p className="name">Yash Bhise</p>
+              <p className="bio">
+                As Director, I drive operations and strategic planning, championing drone autonomy for surveillance, payload delivery, and defense—ensuring peak performance every flight.
+              </p>
+            </div>
           </div>
-
         </div>
-      </section>
+      </div>
     </div>
   );
 }

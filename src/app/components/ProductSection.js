@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const products = [
-  { id: 1, image: '/images/Prod-Hellfirev1.png' },
-  { id: 2, image: '/images/Prod-digitaltrainer.png' }, // Digital Trainer
-  { id: 3, image: '/images/Prod-Mysticone.png' },
-  { id: 4, image: '/images/Prod-Hellfirev2.png' },
-  { id: 5, image: '/images/Prod-HellRampage.png' },
-  { id: 6, image: '/images/Prod-Hellsentinental.png' },
+  { id: 1, image: '/images/Prod-Hellfirev1.webp' },
+  { id: 2, image: '/images/Prod-digitaltrainer.webp' }, // Digital Trainer
+  { id: 3, image: '/images/Prod-Mysticone.webp' },
+  { id: 4, image: '/images/Prod-Hellfirev2.webp' },
+  { id: 5, image: '/images/Prod-HellRampage.webp' },
+  { id: 6, image: '/images/Prod-Hellsentinental.webp' },
 ];
 
 const variants = {
@@ -28,6 +28,8 @@ const variants = {
     },
   },
 };
+
+const MotionLink = motion(Link);
 
 export default function ProductSection() {
   return (
@@ -51,18 +53,17 @@ export default function ProductSection() {
                 className="w-full h-full object-cover"
               />
 
-              <Link href="/products" passHref>
-                <motion.a
-                  className={`absolute left-[20%] bottom-[20%]
-                    px-6 py-2 rounded-full text-sm md:text-base
-                    transition-all duration-300 discover${isDigital ? ' digital' : ''}`}
-                  style={isDigital ? { color: '#000', borderColor: '#000' } : undefined}
-                  whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 250, damping: 18 } }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  DISCOVER ➔
-                </motion.a>
-              </Link>
+              <MotionLink
+                href="/products"
+                className={`absolute left-[20%] bottom-[20%]
+                  px-6 py-2 rounded-full text-sm md:text-base
+                  transition-all duration-300 discover${isDigital ? ' digital' : ''}`}
+                style={isDigital ? { color: '#000', borderColor: '#000' } : undefined}
+                whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 250, damping: 18 } }}
+                whileTap={{ scale: 0.95 }}
+              >
+                DISCOVER ➔
+              </MotionLink>
             </motion.div>
           );
         })}

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import ScrollProgress from '../components/ScrollProgress';
 import '../styles/products.css';
 
@@ -16,7 +17,9 @@ function ImageGroup({ images = [], altPrefix = '', position = 'left' }) {
           height={600}
         />
         <div className="product-single-button">
-          <button className="view-button">View Product ➔</button>
+          <Link href="/contact" className="view-button">
+            View Product ➔
+          </Link>
         </div>
       </div>
     );
@@ -37,7 +40,6 @@ function ImageGroup({ images = [], altPrefix = '', position = 'left' }) {
   );
 }
 
-
 function ProductSection({
   leftImages = [],
   rightImages = [],
@@ -51,6 +53,7 @@ function ProductSection({
     </section>
   );
 }
+
 export default function ProductsPage() {
   const containerRef = useRef(null);
 
@@ -66,26 +69,26 @@ export default function ProductsPage() {
 
         {/* 1: One left, Two right */}
         <ProductSection
-          leftImages={['/images/hell1.png']}
-          rightImages={['/images/hell2.png', '/images/hell3.png']}
+          leftImages={['/images/hell1.webp']}
+          rightImages={['/images/hell2.webp', '/images/hell3.webp']}
         />
 
         {/* 2: Two left, One right */}
         <ProductSection
-          leftImages={['/images/mystic2.png', '/images/mystic3.png']}
-          rightImages={['/images/mystic1.png']}
+          leftImages={['/images/mystic2.webp', '/images/mystic3.webp']}
+          rightImages={['/images/mystic1.webp']}
         />
 
         {/* 3: One left, Two right */}
         <ProductSection
-          leftImages={['/images/senti1.png']}
-          rightImages={['/images/senti2.png', '/images/senti3.png']}
+          leftImages={['/images/senti1.webp']}
+          rightImages={['/images/senti2.webp', '/images/senti3.webp']}
         />
 
         {/* 4: Two left, One right */}
         <ProductSection
-          leftImages={['/images/echozero2.png', '/images/echozero3.png']}
-          rightImages={['/images/echozero1.png']}
+          leftImages={['/images/echozero2.webp', '/images/echozero3.webp']}
+          rightImages={['/images/echozero1.webp']}
         />
       </main>
     </div>
