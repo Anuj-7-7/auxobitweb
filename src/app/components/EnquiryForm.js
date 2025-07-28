@@ -266,6 +266,55 @@ Drop us a message — we’re always happy to answer any question you have
         .form-section button:hover {
           background: #333;
         }
+          /* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  .enquiry-wrapper {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    padding: 1rem !important;
+    gap: 1.5rem !important;
+  }
+  .info-section,
+  .form-section {
+    width: 100% !important;
+  }
+  .info-section h2 {
+    font-size: 1.5rem !important;
+  }
+  .form-section input,
+  .form-section textarea {
+    font-size: 0.9rem !important;
+  }
+  .form-section button {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1rem !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .enquiry-wrapper {
+    grid-template-columns: 1fr 1fr !important;
+    height: auto !important;
+    padding: 1.5rem !important;
+    gap: 2rem !important;
+  }
+  .info-section h2 {
+    font-size: 1.75rem !important;
+  }
+  .info-section p {
+    font-size: 0.95rem !important;
+  }
+  .form-section input,
+  .form-section textarea {
+    font-size: 1rem !important;
+  }
+  .form-section button {
+    font-size: 1rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
+
       `}</style>
     </div>
   );

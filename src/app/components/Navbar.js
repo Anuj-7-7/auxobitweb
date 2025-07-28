@@ -47,8 +47,8 @@ export default function Navbar({ style = {}, className = '' }) {
           <img
             src={
               isScrolled || isProducts || isAbout || isContact
-                ? '/images/auxLogoBlack.png'
-                : '/images/auxLogo.png'
+                ? '/images/auxLogoBlack.webp'
+                : '/images/auxLogo.webp'
             }
             alt="Auxobit logo"
             className="w-[70px] h-[71px] transition-all duration-300 ov"

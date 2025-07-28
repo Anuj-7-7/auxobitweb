@@ -169,3 +169,137 @@
     stroke-dashoffset: 0;
   }
 }
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  .embla {
+    --slide-height: 20rem !important;
+    --slide-size: 100% !important;
+    margin-top: 1.5rem !important;
+    max-width: 100% !important;
+  }
+  .embla__container {
+    margin-left: 0 !important;
+  }
+  .embla__slide {
+    padding-left: 0.5rem !important;
+  }
+  .embla__button {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+  }
+  .embla__button--next {
+    right: 0.5rem !important;
+  }
+  .embla__dots {
+    bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .embla {
+    --slide-height: 30rem !important;
+    --slide-size: 80% !important;
+    margin-top: 2.5rem !important;
+    max-width: 100% !important;
+  }
+  .embla__container {
+    margin-left: calc(var(--slide-spacing) * -1) !important;
+  }
+  .embla__slide {
+    padding-left: var(--slide-spacing) !important;
+  }
+  .embla__button {
+    width: 3rem !important;
+    height: 3rem !important;
+    left: 1rem !important;
+    right: 1rem !important;
+  }
+  .embla__button--next {
+    right: 1rem !important;
+  }
+  .embla__dots {
+    bottom: 1rem !important;
+    gap: 1rem !important;
+  }
+}
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  .embla {
+    --slide-height: 20rem !important;
+    --slide-size: 100% !important;
+    margin-top: 1.5rem !important;
+    max-width: 100% !important;
+  }
+  .embla__container {
+    margin-left: 0 !important;
+  }
+  .embla__slide {
+    padding-left: 0.5rem !important;
+  }
+
+  /* Prev & Next buttons positioned individually */
+  .embla__button--prev {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    left: 0.5rem !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+  .embla__button--next {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    right: 0.5rem !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .embla__dots {
+    bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .embla {
+    --slide-height: 30rem !important;
+    --slide-size: 80% !important;
+    margin-top: 2.5rem !important;
+    max-width: 100% !important;
+  }
+  .embla__container {
+    margin-left: calc(var(--slide-spacing) * -1) !important;
+  }
+  .embla__slide {
+    padding-left: var(--slide-spacing) !important;
+  }
+
+  /* Prev & Next buttons positioned individually */
+  .embla__button--prev {
+    width: 3rem !important;
+    height: 3rem !important;
+    left: 1rem !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+  .embla__button--next {
+    width: 3rem !important;
+    height: 3rem !important;
+    right: 1rem !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .embla__dots {
+    bottom: 1rem !important;
+    gap: 1rem !important;
+  }
+}

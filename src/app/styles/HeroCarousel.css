@@ -125,3 +125,64 @@
 .allin {
   animation: fadeSlideUp 1s ease-out both;
 }
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  .carousel-wrapper {
+    height: 400px !important;
+  }
+  .overlay {
+    top: 8% !important;
+  }
+  .allin {
+    padding: 1rem !important;
+    max-width: 95% !important;
+  }
+  .upw {
+    font-size: 0.75rem !important;
+  }
+  .men {
+    font-size: 1.75rem !important;
+  }
+  .blw {
+    font-size: 0.875rem !important;
+  }
+  .btngrp {
+    gap: 0.5rem !important;
+  }
+  .lnmr,
+  .enq {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .carousel-wrapper {
+    height: 550px !important;
+  }
+  .overlay {
+    top: 10% !important;
+  }
+  .allin {
+    padding: 1.5rem !important;
+    max-width: 90% !important;
+  }
+  .upw {
+    font-size: 0.85rem !important;
+  }
+  .men {
+    font-size: 2rem !important;
+  }
+  .blw {
+    font-size: 0.95rem !important;
+  }
+  .btngrp {
+    gap: 0.75rem !important;
+  }
+  .lnmr,
+  .enq {
+    padding: 0.5rem 1.4rem !important;
+    font-size: 0.95rem !important;
+  }
+}

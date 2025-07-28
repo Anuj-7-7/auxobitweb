@@ -142,3 +142,76 @@
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
   image-rendering: crisp-edges;
 }
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  .about-container {
+    padding: 40px 16px !important;
+  }
+  .about-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .intro-panel {
+    position: relative !important;
+    top: auto !important;
+    padding: 24px !important;
+  }
+  .cards-panel {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .card {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 20px !important;
+  }
+  .avatar-wrapper {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto 12px auto !important;
+  }
+  .card-content {
+    align-items: center !important;
+  }
+  .role,
+  .name {
+    margin: 4px 0 !important;
+  }
+  .bio {
+    font-size: 0. ninerem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .about-container {
+    padding: 60px 24px !important;
+  }
+  .about-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .intro-panel {
+    position: relative !important;
+    top: auto !important;
+    padding: 32px !important;
+  }
+  .cards-panel {
+    gap: 32px !important;
+  }
+  .card {
+    padding: 24px !important;
+  }
+  .avatar-wrapper {
+    width: 90px !important;
+    height: 90px !important;
+    margin-bottom: 16px !important;
+  }
+  .bio {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+}

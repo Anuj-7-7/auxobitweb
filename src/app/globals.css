@@ -207,3 +207,117 @@ body a {
   color: #000000;
   border-color: #000;
 }
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  /* shrink & pad the header row */
+  .hd {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-left: 0 !important;
+    padding: 0.5rem 1rem !important;
+    height: 45px !important;
+  }
+
+  /* shrink the logo */
+  .ov {
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 !important;
+  }
+
+  /* make nav-links a scrollable row */
+  .ai {
+    position: static !important;
+    left: auto !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    padding: 0.5rem 0 !important;
+  }
+  /* hide the scrollbar */
+  .ai::-webkit-scrollbar { display: none; }
+
+  /* keep each button from shrinking or wrapping */
+  .single {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hd {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-left: 0 !important;
+    padding: 0.5rem 1rem !important;
+    height: 45px !important;
+  }
+
+  .ov {
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 !important;
+  }
+
+  .ai {
+    position: static !important;
+    left: auto !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 0.75rem !important;
+    margin: 0 !important;
+    padding: 0.5rem 0 !important;
+  }
+  .ai::-webkit-scrollbar { display: none; }
+
+  .single {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+/* ———— MOBILE PHONES (≤639px) ———— */
+@media (max-width: 639px) {
+  /* Make section height auto and switch to one column */
+  .okay {
+    height: auto !important;
+  }
+  .sec {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(6, auto) !important;
+    gap: 1rem !important;
+  }
+  /* Shrink the Discover buttons */
+  .discover {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ———— TABLETS (640px–1023px) ———— */
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Let section grow to fit content */
+  .okay {
+    height: auto !important;
+  }
+  /* Keep two columns but let rows size to content */
+  .sec {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(3, auto) !important;
+    gap: 1rem !important;
+  }
+  /* Moderate button sizing */
+  .discover {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 0.95rem !important;
+  }
+}
