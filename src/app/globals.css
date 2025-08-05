@@ -207,6 +207,33 @@ body a {
   color: #000000;
   border-color: #000;
 }
+/* add after your existing rules for .single */
+
+.single {
+  position: relative;          /* make room for the pseudo-element */
+  overflow: visible;           /* ensure the underline can extend */
+}
+
+/* the hidden “bar” */
+.single::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;                 /* tweak to sit right under the text */
+  left: 80%;
+  width: 80%;                  /* full length of the eventual underline */
+  height: 2px;
+  background: currentColor;    /* matches text color */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  margin-left: -150px;
+}
+
+/* on hover, grow from center outwards */
+.single:hover::after {
+  transform: scaleX(1);
+}
+
 /* ———— MOBILE PHONES (≤639px) ———— */
 @media (max-width: 639px) {
   /* shrink & pad the header row */

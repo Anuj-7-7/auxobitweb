@@ -87,7 +87,7 @@ export default function ContactPage() {
               style={{ cursor: 'pointer' }}
               onClick={handleCopyEmail}
             >
-              shravan@auxobitaerospace.com
+              info@auxobit.com
             </span>
             {copied && (
               <span className="copied-badge">
